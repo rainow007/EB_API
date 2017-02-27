@@ -1,5 +1,3 @@
-from openpyxl import load_workbook
-
 
 wb = load_workbook(filename=u'D:\EB_API\TestReport\TestReport.xlsx')
 
