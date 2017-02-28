@@ -65,10 +65,10 @@ tomorrow=today+datetime.timedelta(days=15)
 
 #Server='http://192.168.32.179'
 
-# Server='http://192.168.32.179'
-Server='http://testwww.51pms.net:'
+Server='http://192.168.32.179'
+# Server='http://testwww.51pms.net:'
 
-Port='8001'
+Port=''
 
 
 RoomType_API          ='/api/rooms/RoomType/'
