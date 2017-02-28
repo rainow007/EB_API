@@ -215,6 +215,7 @@ def Available_Room(**self):
                         'RoomTypeId':RoomTypeId,
                         'RoomNumber':RoomNumber,
                         'RoomStatusId':RoomStatusId}
+        print  Available_Room
         return Available_Room
 
     else:

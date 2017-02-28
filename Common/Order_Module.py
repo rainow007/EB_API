@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+import nose
+from nose.tools import assert_equal
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
 from Config.EB_API_Config import *
+from Common.RoomType import *
 import requests
 
 
@@ -60,7 +63,7 @@ def Order_Booking(**self):
                 "k": self['RoomTypeId'],
                 "v": "3"
             },
-            "StartDateTime": "%s"%yesterday
+            "StartDateTime": "%s"%today
         }
     ],
     "Remark": ""
@@ -77,26 +80,35 @@ def Order_Booking(**self):
 
     if businessCode & resultCode ==True:
         OrderId = Order_Booking_data['data']['OrderId']
-        Order_Status = Order_Booking_data['OccupationsInfo'][2]['Status']['v']
+        Order_Status = Order_Booking_data['data']['OccupationsInfo'][0]['Status']['v']
         Booking_Details = {
         	                    'OrderId':OrderId,
         	                    'Order_Status':Order_Status,
         	                    'Result':True}
-        print "ok"
+        print Booking_Details
         return Booking_Details
     else:
         Booking_Details = {'Result',False}
-        print "Error"
+        print Booking_Details
         return Booking_Details
 
 
 if __name__ == "__main__":
+    
+    Available=Available_Room(url=Available_Room_url,
+                    StartDate=today,
+                    EndDate=tomorrow)
+
+    Result = Available['Result']
+
+    assert_equal(Result,True,msg="businessCode and resultCode is Error")
+
     Order_Booking(Action = 0,
-    CreditTypeValue = 'C9110',
-    CreditTypeName = '现金',
-    Channel_K = 'Hotel',
-    Channel_V = '酒店前台',
-    RoomNumber = 'LDEVKM',
-    RoomTypeId = '5FAIUJ45JF',
+    CreditTypeValue = CreditTypeValue['微信'],
+    CreditTypeName = '微信',
+    Channel_K = Channel_K['去哪儿'],
+    Channel_V = '去哪儿',
+    RoomNumber = Available['RoomNumber'],
+    RoomTypeId = Available['RoomTypeId'],
     url = Check_In_url)
 
