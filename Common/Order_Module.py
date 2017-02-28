@@ -12,7 +12,7 @@ import requests
 
 
 # 办理预订、入住
-def Order_Booking(**self):
+def Order_Check_In(**self):
     payload = {
     "OccupationChangedList": [],
     "BillItemChangedList": [],
@@ -74,23 +74,23 @@ def Order_Booking(**self):
                               headers=Headers ,
                               data=json.dumps(payload))
         
-    Order_Booking_data = json.loads(r.text)
-    businessCode=CommonMoudle(Order_Booking_data['businessCode'] ,200)
-    resultCode=CommonMoudle(Order_Booking_data['resultCode'] ,200) 
+    Order_Check_In_data = json.loads(r.text)
+    businessCode=CommonMoudle(Order_Check_In_data['businessCode'] ,200)
+    resultCode=CommonMoudle(Order_Check_In_data['resultCode'] ,200) 
 
     if businessCode & resultCode ==True:
-        OrderId = Order_Booking_data['data']['OrderId']
-        Order_Status = Order_Booking_data['data']['OccupationsInfo'][0]['Status']['v']
-        Booking_Details = {
+        OrderId = Order_Check_In_data['data']['OrderId']
+        Order_Status = Order_Check_In_data['data']['OccupationsInfo'][0]['Status']['v']
+        Check_In_Details = {
         	                    'OrderId':OrderId,
         	                    'Order_Status':Order_Status,
         	                    'Result':True}
-        print Booking_Details
-        return Booking_Details
+        print Check_In_Details
+        return Check_In_Details
     else:
-        Booking_Details = {'Result',False}
-        print Booking_Details
-        return Booking_Details
+        Check_In_Details = {'Result',False}
+        print Check_In_Details
+        return Check_In_Details
 
 
 if __name__ == "__main__":
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     assert_equal(Result,True,msg="businessCode and resultCode is Error")
 
-    Order_Booking(Action = 0,
+    Order_Check_In(Action = 0,
     CreditTypeValue = CreditTypeValue['微信'],
     CreditTypeName = '微信',
     Channel_K = Channel_K['去哪儿'],

@@ -28,7 +28,7 @@ class Test_order():
 		Result = Available['Result']
 		assert_equal(Result,True,msg = "businessCode and resultCode is Error")
 
-		Booking = Order_Booking(Action = 0,
+		Check_In = Order_Check_In(Action = 0,
 		CreditTypeValue = CreditTypeValue['微信'],
     	CreditTypeName = '微信',
     	Channel_K = Channel_K['去哪儿'],
@@ -37,7 +37,7 @@ class Test_order():
     	RoomTypeId = Available['RoomTypeId'],
     	url = Check_In_url )
 
-		Result = Booking['Result']
-		Order_Status = Booking['Order_Status']
+		Result = Check_In['Result']
+		Order_Status = Check_In['Order_Status']
 		assert_equal(Result,True,msg = "businessCode and resultCode is Error")
 		assert_equal(Order_Status,u'\u5df2\u9884\u8ba2',msg = "businessCode and resultCode is Error")
