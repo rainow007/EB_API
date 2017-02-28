@@ -77,6 +77,8 @@ Check_Out_API          ='/api/ordercheckin/Checkout/'
 
 Register_API            ='/meituan/eb/register'
 
+Available_Room_API          ='/api/ordercheckin/BasicData/%s/%s'%(today,tomorrow)
+
 
 
 RoomType_API_url     = Server+Port+RoomType_API
@@ -92,6 +94,8 @@ Check_In_url         = Server+Port+Check_In_API
 Check_Out_url         = Server+Port+Check_Out_API
 
 Register_API_url      = Server+Port+Register_API
+
+Available_Room_url    = Server+Port+Available_Room_API
 
 
 

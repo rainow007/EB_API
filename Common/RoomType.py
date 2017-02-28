@@ -195,7 +195,52 @@ def BatchAdd_RoomType(**self):
             BatchAdd_RoomType={'Result':False}
             return BatchAdd_RoomType       
 
-        
+def Available_Room(**self):
+    payload = [{
+                    "RoomTypeName":   self['RoomTypeName1'],
+                    "weekdayPrice":   self['weekdayPrice'],
+                    "OTARoomTypeName":self['OTARoomTypeName'],
+                    "OTARoomTypeId":  self['OTARoomTypeId'],
+                    "Rooms": [
+            {
+                "RoomNumber": self['RoomNumber1_1']
+            },
+            {
+                "RoomNumber": self['RoomNumber1_2']
+            }
+                              ]
+                   },
+                {
+                    "RoomTypeName":   self['RoomTypeName2'],
+                    "weekdayPrice":   self['weekdayPrice'],
+                    "Rooms": [
+            {
+                "RoomNumber": self['RoomNumber2_1']
+            },
+            {
+                "RoomNumber": self['RoomNumber2_2']
+            }
+        ]
+        }]
+    r = requests.request('POST', self['url'], headers=Headers ,data=json.dumps(payload))
+        T=r.elapsed.microseconds/1000
+
+        BatchAdd_RoomType_data = json.loads(r.text)
+        businessCode=CommonMoudle(BatchAdd_RoomType_data['businessCode'] ,200)
+        resultCode=CommonMoudle(BatchAdd_RoomType_data['resultCode'] ,200)
+        Message=BatchAdd_RoomType_data['Message']
+
+         
+        if businessCode & resultCode ==True:
+            BatchAdd_RoomType={'Result':True}
+            return BatchAdd_RoomType
+
+        else:
+            BatchAdd_RoomType={'Result':False}
+            return BatchAdd_RoomType    
+            
+
+
 def Save(**self):
     ft = Font(name='Arial Unicode MS',
     size=11,
