@@ -196,14 +196,24 @@ def BatchAdd_RoomType(**self):
             return BatchAdd_RoomType       
 
 def Available_Room(**self):
+    print self['url']
+    print self['StartDate']
+    print self['EndDate']
     
-    r = requests.request('POST', self['url'], headers=Headers ,data=json.dumps(payload))
+    r = requests.request('GET', self['url']+"%s/%s"%(self['StartDate'],self['EndDate']), headers=Headers)
     Available_Room_data = json.loads(r.text)
-    businessCode=CommonMoudle(Available_Room_data['businessCode'] ,200)
-    resultCode=CommonMoudle(Available_Room_data['resultCode'] ,200)
-
+    businessCode= CommonMoudle(Available_Room_data['businessCode'] ,200)
+    resultCode  = CommonMoudle(Available_Room_data['resultCode'] ,200)
+    Id          = Available_Room_data['data']['roomTypes'][0]['Rooms'][0]['Id']
+    RoomTypeId  = Available_Room_data['data']['roomTypes'][0]['Rooms'][0]['RoomTypeId']
+    RoomNumber  = Available_Room_data['data']['roomTypes'][0]['Rooms'][0]['RoomNumber']
+    RoomStatusId= Available_Room_data['data']['roomTypes'][0]['Rooms'][0]['RoomStatusId']
     if businessCode & resultCode ==True:
-        Available_Room={'Result':True}
+        Available_Room={'Result':True,
+                        'Id':Id,
+                        'RoomTypeId':RoomTypeId,
+                        'RoomNumber':RoomNumber,
+                        'RoomStatusId':RoomStatusId}
         return Available_Room
 
     else:
@@ -273,17 +283,20 @@ if __name__ == "__main__":
     RoomNumber4=GetNumber(10)
     
     NewRoomTypeName=GetNumber(9)
+
+    Available_Room(url=Available_Room_url,
+                    StartDate=today,
+                    EndDate=tomorrow)
     
-    RoomType=Add_RoomType(CaseNumber='TCS_001',
-                          url=RoomType_API_url,
-                          RoomTypeName=RoomTypeName,
-                          RoomNumber=RoomNumber,
-                          weekdayPrice='300')
-# 
-#      
-    RoomType_Status(url=RoomType_Status_url,
-                    RoomTypeId=RoomType['RoomTypeId'],
-                    CaseNumber='TCS_001')
+    # RoomType=Add_RoomType(CaseNumber='TCS_001',
+    #                       url=RoomType_API_url,
+    #                       RoomTypeName=RoomTypeName,
+    #                       RoomNumber=RoomNumber,
+    #                       weekdayPrice='300')
+ 
+    # RoomType_Status(url=RoomType_Status_url,
+    #                 RoomTypeId=RoomType['RoomTypeId'],
+    #                 CaseNumber='TCS_001')
 
 #def Modify_RoomType(url,RoomTypeName,RoomTypeId,weekdayPrice,RoomNumber1,RoomID,IsActive1):
 #     

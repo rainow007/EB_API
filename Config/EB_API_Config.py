@@ -77,7 +77,7 @@ Check_Out_API          ='/api/ordercheckin/Checkout/'
 
 Register_API            ='/meituan/eb/register'
 
-Available_Room_API          ='/api/ordercheckin/BasicData/%s/%s'%(today,tomorrow)
+Available_Room_API          ='/api/ordercheckin/BasicData/'
 
 
 
