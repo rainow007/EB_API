@@ -77,16 +77,15 @@ def Order_Booking(**self):
         	OrderId = Order_Booking_data['data']['OrderId']
         	Order_Status = Order_Booking_data['OccupationsInfo'][2]['Status']['v']
         	Booking_Details = {
-        	'OrderId':OrderId,
-        	'Order_Status':Order_Status,
-        	'Result':True
-        	}
+        	                    'OrderId':OrderId,
+        	                    'Order_Status':Order_Status,
+        	                    'Result':True}
         	return Booking_Details
-            print "Order_Booking is Pass.Time:%s ms"%(T)  
+
         else:
         	Booking_Details = {'Result',False}
         	return Booking_Details
-            print "Order_Booking is Failed.Time:%s ms"%(T) 
+            
 
 
 # 办理入住

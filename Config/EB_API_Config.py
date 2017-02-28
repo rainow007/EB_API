@@ -30,6 +30,14 @@ Headers={'Content-Type':'application/json',
          'ownerid':'434265567985665',
          'orgid':'434265567985667'}
 
+#支付方式
+CreditTypeValue = {'现金':'C9110','微信':'C9140','支付宝':'C9310','银行卡':'C9120','其它':'C9900'}
+#CreditTypeName = {'现金','微信','支付宝','银行卡','其它'}
+
+#订单渠道
+Channel_K = {'酒店前台':'Hotel','美团':'MeiTuanEBK','携程':'CTRIP','艺龙':'ELONG','去哪儿':'QUNAR','阿里旅行':'TAOBAO'}
+# Channel_V = {'酒店前台','美团','携程','艺龙','去哪儿','阿里旅行'}
+
 conn= MySQLdb.connect(
         host='192.168.9.24',
         port = 3306,
