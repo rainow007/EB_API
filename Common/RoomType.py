@@ -195,6 +195,7 @@ def BatchAdd_RoomType(**self):
             BatchAdd_RoomType={'Result':False}
             return BatchAdd_RoomType       
 
+#获取可用房
 def Available_Room(**self):
     print self['url']
     print self['StartDate']
