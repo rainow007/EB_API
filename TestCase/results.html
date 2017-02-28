@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Unit Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2017-02-28 13:53:41</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:09.673000</p>
-<p class='attribute'><strong>Status:</strong> Failure 4 Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2017-02-27 16:18:33</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:12.805000</p>
+<p class='attribute'><strong>Status:</strong> Pass 1</p>
 
 <p class='description'></p>
 </div>
@@ -223,221 +223,32 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='failClass'>
+<tr class='passClass'>
     <td>nose.case.MethodTestCase: Test case wrapper for test methods.</td>
-    <td>4</td>
-    <td>0</td>
-    <td>4</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
-</tr>
-
-<tr id='ft1.1' class='none'>
-    <td class='failCase'><div class='testcase'>Test001</div></td>
-    <td colspan='6' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        fail</a>
-
-    <div id='div_ft1.1' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.1: TestCase.Test001.Test001.Test001Traceback (most recent call last):
-  File "C:\Python27\lib\unittest\case.py", line 329, in run
-    testMethod()
-  File "C:\Python27\lib\site-packages\nose\case.py", line 197, in runTest
-    self.test(*self.arg)
-  File "D:\EB_API\TestCase\Test001.py", line 36, in Test001
-    assert_equal(Result,True,msg="businessCode and resultCode is Error")
-  File "C:\Python27\lib\unittest\case.py", line 513, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "C:\Python27\lib\unittest\case.py", line 506, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: businessCode and resultCode is Error
--------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------
-Test Start
-
---------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------
--------------------- &gt;&gt; begin captured logging &lt;&lt; --------------------
-requests.packages.urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): 127.0.0.1
-requests.packages.urllib3.connectionpool: DEBUG: http://127.0.0.1:8888 "POST http://192.168.32.179/api/rooms/RoomType/ HTTP/1.1" 200 154
---------------------- &gt;&gt; end captured logging &lt;&lt; ---------------------
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>Test002</div></td>
-    <td colspan='6' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
-
-    <div id='div_ft1.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.2: TestCase.Test002.Test002.Test002Traceback (most recent call last):
-  File "C:\Python27\lib\unittest\case.py", line 329, in run
-    testMethod()
-  File "C:\Python27\lib\site-packages\nose\case.py", line 197, in runTest
-    self.test(*self.arg)
-  File "D:\EB_API\TestCase\Test002.py", line 37, in Test002
-    assert_equal(Result,True,msg="businessCode and resultCode is Error")
-  File "C:\Python27\lib\unittest\case.py", line 513, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "C:\Python27\lib\unittest\case.py", line 506, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: businessCode and resultCode is Error
--------------------- &gt;&gt; begin captured stdout &lt;&lt; ---------------------
-Test Start
-
---------------------- &gt;&gt; end captured stdout &lt;&lt; ----------------------
--------------------- &gt;&gt; begin captured logging &lt;&lt; --------------------
-requests.packages.urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): 127.0.0.1
-requests.packages.urllib3.connectionpool: DEBUG: http://127.0.0.1:8888 "POST http://192.168.32.179/api/rooms/RoomType/ HTTP/1.1" 200 154
---------------------- &gt;&gt; end captured logging &lt;&lt; ---------------------
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.3' class='none'>
-    <td class='failCase'><div class='testcase'>Test003</div></td>
-    <td colspan='6' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
-        fail</a>
-
-    <div id='div_ft1.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.3: TestCase.Test003.Test003.Test003Traceback (most recent call last):
-  File "C:\Python27\lib\unittest\case.py", line 329, in run
-    testMethod()
-  File "C:\Python27\lib\site-packages\nose\case.py", line 197, in runTest
-    self.test(*self.arg)
-  File "D:\EB_API\TestCase\Test003.py", line 33, in Test003
-    assert_equal(Result,True,msg="businessCode and resultCode is Error")
-  File "C:\Python27\lib\unittest\case.py", line 513, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "C:\Python27\lib\unittest\case.py", line 506, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: businessCode and resultCode is Error
--------------------- &gt;&gt; begin captured logging &lt;&lt; --------------------
-requests.packages.urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): 127.0.0.1
-requests.packages.urllib3.connectionpool: DEBUG: http://127.0.0.1:8888 "POST http://192.168.32.179/api/rooms/RoomType/ HTTP/1.1" 200 154
---------------------- &gt;&gt; end captured logging &lt;&lt; ---------------------
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.4' class='none'>
-    <td class='failCase'><div class='testcase'>Test004</div></td>
-    <td colspan='6' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
-        fail</a>
-
-    <div id='div_ft1.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.4: TestCase.Test004.Test004.Test004Traceback (most recent call last):
-  File "C:\Python27\lib\unittest\case.py", line 329, in run
-    testMethod()
-  File "C:\Python27\lib\site-packages\nose\case.py", line 197, in runTest
-    self.test(*self.arg)
-  File "D:\EB_API\TestCase\Test004.py", line 37, in Test004
-    assert_equal(Result,True,msg="businessCode and resultCode is Error")
-  File "C:\Python27\lib\unittest\case.py", line 513, in assertEqual
-    assertion_func(first, second, msg=msg)
-  File "C:\Python27\lib\unittest\case.py", line 506, in _baseAssertEqual
-    raise self.failureException(msg)
-AssertionError: businessCode and resultCode is Error
--------------------- &gt;&gt; begin captured logging &lt;&lt; --------------------
-requests.packages.urllib3.connectionpool: DEBUG: Starting new HTTP connection (1): 127.0.0.1
-requests.packages.urllib3.connectionpool: DEBUG: http://127.0.0.1:8888 "POST http://192.168.32.179/api/rooms/RoomTypes/ HTTP/1.1" 200 154
---------------------- &gt;&gt; end captured logging &lt;&lt; ---------------------
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr class='errorClass'>
-    <td>nose.failure.Failure: Unloadable or unexecutable test.</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
-<tr id='ft2.1' class='none'>
-    <td class='errorCase'><div class='testcase'>runTest</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>Test</div></td>
     <td colspan='6' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft2.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft2.1: nose.failure.Failure.runTestTraceback (most recent call last):
-  File "C:\Python27\lib\unittest\case.py", line 329, in run
-    testMethod()
-  File "C:\Python27\lib\site-packages\nose\loader.py", line 418, in loadTestsFromName
-    addr.filename, addr.module)
-  File "C:\Python27\lib\site-packages\nose\importer.py", line 47, in importFromPath
-    return self.importFromDir(dir_path, fqname)
-  File "C:\Python27\lib\site-packages\nose\importer.py", line 94, in importFromDir
-    mod = load_module(part_fqname, fh, filename, desc)
-  File "D:\EB_API\TestCase\Test_order.py", line 26
-SyntaxError: Non-ASCII character '\xe7' in file D:\EB_API\TestCase\Test_order.py on line 26, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
-
+pt1.1: TestCase.Test001.Test001.Test
 
         </pre>
     </div>
@@ -448,10 +259,10 @@ SyntaxError: Non-ASCII character '\xe7' in file D:\EB_API\TestCase\Test_order.py
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>5</td>
-    <td>0</td>
-    <td>4</td>
     <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

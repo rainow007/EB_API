@@ -1,4 +1,4 @@
-#conding=utf-8
+# -*- coding: utf-8 -*-
 import sys
 import os
 import nose
@@ -12,6 +12,8 @@ sys.path.append(rootPath)
 
 from Config.EB_API_Config import *
 from Common.Order_Module import *
+from Common.RoomType import *
+
 
 class Test_order():
 	def setUp(self):
@@ -19,17 +21,21 @@ class Test_order():
 
 	def Test(self):
 		self.CaseNumber = "Test_order"
-		Booking_Details = Order_Booking(
-			CaseNumber = sefl.CaseNumber,
-			Action = 0,
-			url = Check_In_url,
-			CreditTypeValue = CreditTypeValue['现金'],
-			CreditTypeName = '现金',
-			Channel_K = Channel_K['酒店前台'],
-			Channel_V = '酒店前台',
-			RoomNumber=RoomType['RoomNumber'],
-            RoomTypeId=RoomType['RoomTypeId']
-			)
-		Result = Booking_Details['Result']
+		Available = Available_Room(url=Available_Room_url,
+                    StartDate=today,
+                    EndDate=tomorrow)
+					
+		Result = Available['Result']
+		assert_equal(Result,True,msg = "businessCode and resultCode is Error")
 
-		assert_equal[Result,True]
+		Order=Order_Booking(Action = 0,
+		CreditTypeValue = CreditTypeValue['微信'],
+    	CreditTypeName = '微信',
+    	Channel_K = Channel_K['去哪儿'],
+    	Channel_V = '去哪儿',
+    	RoomNumber = Available['RoomNumber'],
+    	RoomTypeId = Available['RoomTypeId'],
+    	url = Check_In_url )
+
+		Result = Order['Result']
+		assert_equal(Result,True,msg = "businessCode and resultCode is Error")
