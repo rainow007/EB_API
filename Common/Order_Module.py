@@ -1,5 +1,4 @@
-#coding=utf-8
-# import random
+# -*- coding: utf-8 -*-
 import sys
 import os
 curPath = os.path.abspath(os.path.dirname(__file__))
@@ -11,7 +10,7 @@ import requests
 
 # 办理预订、入住
 def Order_Booking(**self):
-        payload = {
+    payload = {
     "OccupationChangedList": [],
     "BillItemChangedList": [],
     "CustomerChangedList": [],
@@ -67,30 +66,28 @@ def Order_Booking(**self):
     "Remark": ""
     }
 }
-        r = requests.request('POST',
+    r = requests.request('POST',
                               self['url'], 
                               headers=Headers ,
                               data=json.dumps(payload))
         
-        T=r.elapsed.microseconds/1000
+    Order_Booking_data = json.loads(r.text)
+    businessCode=CommonMoudle(Order_Booking_data['businessCode'] ,200)
+    resultCode=CommonMoudle(Order_Booking_data['resultCode'] ,200) 
 
-        Order_Booking_data = json.loads(r.text)
-        businessCode=CommonMoudle(Order_Booking_data['businessCode'] ,200)
-        resultCode=CommonMoudle(Order_Booking_data['resultCode'] ,200) 
-
-        if businessCode & resultCode ==True and T<300:
-            print "dsfjla"
-        	OrderId = Order_Booking_data['data']['OrderId']
-        	Order_Status = Order_Booking_data['OccupationsInfo'][2]['Status']['v']
-        	Booking_Details = {
+    if businessCode & resultCode ==True:
+        OrderId = Order_Booking_data['data']['OrderId']
+        Order_Status = Order_Booking_data['OccupationsInfo'][2]['Status']['v']
+        Booking_Details = {
         	                    'OrderId':OrderId,
         	                    'Order_Status':Order_Status,
         	                    'Result':True}
-        	return Booking_Details
-
-        else:
-        	Booking_Details = {'Result',False}
-        	return Booking_Details
+        print "ok"
+        return Booking_Details
+    else:
+        Booking_Details = {'Result',False}
+        print "Error"
+        return Booking_Details
 
 
 if __name__ == "__main__":
@@ -102,3 +99,4 @@ if __name__ == "__main__":
     RoomNumber = 'LDEVKM',
     RoomTypeId = '5FAIUJ45JF',
     url = Check_In_url)
+
