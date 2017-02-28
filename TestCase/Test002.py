@@ -34,35 +34,28 @@ class Test002():
                               RoomNumber=RoomNumber,
                               weekdayPrice='300')
         Result = RoomType['Result']
-        # if (Result != True):
-        #     return Result
-        assert_equal(Result,True)
+        assert_equal(Result,True,msg="businessCode and resultCode is Error")
         
         Status=RoomType_Status(CaseNumber=self.CaseNumber,
                                url=RoomType_Status_url,
                         RoomTypeId=RoomType['RoomTypeId'])
 
         Result = Status['Result']
-        # if (Result != True):
-        #     return Result
-        assert_equal(Result,True)
+
+        assert_equal(Result,True,msg="businessCode and resultCode is Error")
         
         Del=Del_RoomType(CaseNumber=self.CaseNumber,
                      url=RoomType_API_url, 
                      RoomTypeId=RoomType['RoomTypeId'])
          
         Result = Del['Result']
-        # if (Result != True):
-        #     return Result
-        assert_equal(Result,True)
+        assert_equal(Result,True,msg="businessCode and resultCode is Error")
         
         Status=RoomType_Status(CaseNumber=self.CaseNumber,
                                url=RoomType_Status_url,
                         RoomTypeId=RoomType['RoomTypeId'])       
         Result = Status['Result']
-        # if (Result != True):
-        #     return Result
-        assert_equal(Result,True)
+        assert_equal(Result,False,)
         
         Modify=Modify_RoomType(CaseNumber=self.CaseNumber,
                                url=RoomType_API_url,
