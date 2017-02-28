@@ -1,5 +1,10 @@
 #coding=utf-8
-import random
+# import random
+import sys
+import os
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 from Config.EB_API_Config import *
 import requests
 
@@ -74,6 +79,7 @@ def Order_Booking(**self):
         resultCode=CommonMoudle(Order_Booking_data['resultCode'] ,200) 
 
         if businessCode & resultCode ==True and T<300:
+            print "dsfjla"
         	OrderId = Order_Booking_data['data']['OrderId']
         	Order_Status = Order_Booking_data['OccupationsInfo'][2]['Status']['v']
         	Booking_Details = {
@@ -85,85 +91,14 @@ def Order_Booking(**self):
         else:
         	Booking_Details = {'Result',False}
         	return Booking_Details
-            
 
 
-# 办理入住
-# def Order_Check_In(**self):
-# 		payload = {
-#     "OccupationChangedList": [],
-#     "BillItemChangedList": [],
-#     "CustomerChangedList": [],
-#     "Data":
-#     {
-#     "Action": "1",
-#     "BillItems": [
-#         {
-#             "IsDeposit": False,
-#             "Amount": 100,
-#             "CreditTypeValue": "C9140",
-#             "CreditTypeName": "微信",
-#             "DebitTypeValue": "D1000",
-#             "DebitTypeName": "房费"
-#         }
-#     ],
-#     "Channel": {
-#         "k": "Hotel",
-#         "v": "酒店前台"
-#     },
-#     "CheckinType": "Normal",
-#     "HasGuaranty": False,
-#     "IsCheckout": False,
-#     "Liaison": {
-#         "Address": "",
-#         "Folk": "",
-#         "Gender": "0",
-#         "Mobile": "",
-#         "Name": "wangsheng",
-#         "Point": 0.0,
-#         "arrowStatus": False
-#     },
-#     "OccupationsInfo": [
-#         {
-#             "EndDateTime":"%s"%tomorrow,
-#             "RoomFee": [
-#                 {
-#                     "ActualPrice": 300.0,
-#                     "Date": "%s"%today,
-#                     "ExternalPrice": 0.0,
-#                     "IsExternalPrice": False,
-#                     "OrignMarketPrice": 300.0
-#                 }
-#             ],
-#             "RoomNumber": self['RoomNumber'],
-#             "RoomType": {
-#                 "k": self['RoomTypeId'],
-#                 "v": "3"
-#             },
-#             "StartDateTime": "%s"%yesterday
-#         }
-#     ],
-#     "Remark": ""
-#     }
-# }
-
-# 		r = requests.request('post',
-# 							  self['url'],
-# 							  headers = headers,
-# 							  data = json.dumps(payload))
-
-# 		Order_Check_In_data = json.dumps(r.text)
-# 		businessCode = CommonMoudle(Order_Check_In_data['businessCode'],200)
-# 		resultCode = CommonMoudle(Order_Check_In_data['resultCode'],200)
-
-# 		if businessCode & resultCode == True:
-# 			OrderId = Order_Booking_data['data']['OrderId']
-#         	Order_Status = Order_Booking_data['OccupationsInfo'][2]['Status']['v']
-#         	Check_In_Details = {
-#         	'OrderId':OrderId,
-#         	'Order_Status':Order_Status
-#         	}
-# 			return Check_In_Details
-# 		else:
-# 			Check_In_Daily = {'Result',False}
-# 			return Check_In_Details
+if __name__ == "__main__":
+    Order_Booking(Action = 0,
+    CreditTypeValue = 'C9110',
+    CreditTypeName = '现金',
+    Channel_K = 'Hotel',
+    Channel_V = '酒店前台',
+    RoomNumber = 'LDEVKM',
+    RoomTypeId = '5FAIUJ45JF',
+    url = Check_In_url)
