@@ -22,7 +22,7 @@ class Test002():
 
 
 
-    def Test(self):
+    def Test002(self):
         self.CaseNumber="Test002"
         RoomTypeName=GetNumber(8)
         RoomNumber=GetNumber(10)
@@ -55,7 +55,7 @@ class Test002():
                                url=RoomType_Status_url,
                         RoomTypeId=RoomType['RoomTypeId'])       
         Result = Status['Result']
-        assert_equal(Result,False,)
+        assert_equal(Result,False,msg="businessCode and resultCode is Error")
         
         Modify=Modify_RoomType(CaseNumber=self.CaseNumber,
                                url=RoomType_API_url,
@@ -66,24 +66,15 @@ class Test002():
                         RoomID=RoomType['RoomID'],
                         IsActive=False)        
         Result = Modify['Result']
-        # if (Result != False):
-        #     return Result
-        assert_equal(Result,False)
+        assert_equal(Result,False,msg="businessCode and resultCode is Error")
                 
         Serach=Search_RoomType(CaseNumber=self.CaseNumber,
                                url=Search_RoomType_url,
                                RoomTypeName=RoomType['RoomTypeName'],
                                RoomNumber=RoomType['RoomNumber'],
                                RoomTypeId=RoomType['RoomTypeId'])
-        Result = Serach['Result']
-        # if (Result != True):
-        #     return Result        
-        assert_not_equal(Result,True)
+        Result = Serach['Result']   
+        assert_equal(Result,False,msg="businessCode and resultCode is Error")
                 
     def tearDown(self):
         print "Test End"
-
-
-# if __name__ == "__main__":
-#     test = Test002('TCS002')
-#     test.Test(CaseNumber='TCS002')
