@@ -19,7 +19,7 @@ class Test001():
 
 
 
-    def Test(self):
+    def Test001(self):
         self.CaseNumber="Test001"
         RoomTypeName=GetNumber(8)
         RoomNumber=GetNumber(10)
