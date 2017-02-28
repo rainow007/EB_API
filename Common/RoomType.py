@@ -196,11 +196,7 @@ def BatchAdd_RoomType(**self):
             return BatchAdd_RoomType       
 
 #获取可用房
-def Available_Room(**self):
-    print self['url']
-    print self['StartDate']
-    print self['EndDate']
-    
+def Available_Room(**self): 
     r = requests.request('GET', self['url']+"%s/%s"%(self['StartDate'],self['EndDate']), headers=Headers)
     Available_Room_data = json.loads(r.text)
     businessCode= CommonMoudle(Available_Room_data['businessCode'] ,200)
